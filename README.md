@@ -33,6 +33,12 @@ To get up and running, simply do the following:
     Admin Login : http://127.0.0.1:8000/admin
                 username : admin 
                 password : admin
+    
 
+    #for Rest APIs
+    method                      URL                                   Discription
+    GET                 http://127.0.0.1:8000/api/merchant       :  Lists all merchant
+    POST                http://127.0.0.1:8000/api/merchant       :  Adds merchant
+    GET,DELETE,PUT       http://127.0.0.1:8000/api/merchant/<pk> :  CRUD on merchant id
 
 **NOTE**: I highly recommend creating a [Virtual Environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/). Python Virtual Environments allow developers to work in isolated sandboxes and to create separation between python packages installed via [pip](https://pypi.python.org/pypi/pip).
