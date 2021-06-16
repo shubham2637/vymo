@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="cover-container d-flex w-100   p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Foodvymo</h3>
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <nav class="nav nav-masthead justify-content-center" id="navbarResponsive">
+            <a class="nav-link " href="{% url 'index' %}">Home</a>
+            {% if user.is_authenticated %} 
+            <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a class="nav-link active" href="{% url 'login' %}">Login</a>
+            {% endif %}
+          </nav>
+        </div>
+      </header>
+      <div class="container" style="margin: 10px;">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+    
+                <h2 class="card-title text-center">Login </h2>
+    
+                <div style="align-items: center;">
+                    
+                    <form method="post" style="margin: 1%;" >
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Login</button>
+                      </form>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="hint-text small" style="text-align: center;" >Don't have an account? <a class="text-success" href="/signup">Register Now!</a></div>
+  <footer class="mastfoot mt-auto row">
+    <div class="inner ">
+      <p>Made by <a href="https://www.linkedin.com/in/shubham2637">Shubham Singh</a> .</p>
+    </div>
+    <div class="inner row mr-auto"></div>
+    <a style="padding: 1%;"  href="https://github.com/shubham2637"><i class="fab fa-github fa-2x"></i></a>
+      <a style="padding: 1%;"  href="https://www.linkedin.com/in/shubham2637"><i class="fab fa-linkedin fa-2x"></i></a>
+      <a style="padding: 1%;" href="https://instagram.com/shubham2637" style="color: #fb3958;"><i class="fab fa-instagram-square fa-2x"></i></a>
+      <a style="padding: 1%;" href="https://www.facebook.com/shubham2637" style="color: #00acee;"> <i class="fab fa-facebook fa-2x"></i></a>
+    </div>
+    
+  </footer>
+</div>
+{% endblock %}
