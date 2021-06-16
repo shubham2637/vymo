@@ -1,9 +1,10 @@
 from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from foodvymo.forms import SignUpForm
-
+from .forms import MerchantForm
 
 def index(request):
     context = {
@@ -25,3 +26,18 @@ def sign_up(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+def addmerchant(request):
+    if request.method == 'POST':
+        # POST, generate bound form with data from the request
+        form = MerchantForm(request.POST)
+        # check if it's valid:
+        if form.is_valid():
+            # Insert into DB
+            form.save()
+            # redirect to a new URL:
+            return render(request,'foodvymo/thankyou.html',{'form':form})
+    else:
+        # GET, generate unbound (blank) form
+        form = MerchantForm()
+    return render(request,'foodvymo/addmerchant.html',{'form':form})

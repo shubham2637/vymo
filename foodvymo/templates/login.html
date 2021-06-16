@@ -17,6 +17,7 @@
             {% else %}
             <a class="nav-link active" href="{% url 'login' %}">Login</a>
             {% endif %}
+          <a class="nav-link active" href="{% url 'addMerchant' %}">Add Merchant</a>
           </nav>
         </div>
       </header>
@@ -25,12 +26,12 @@
             <div class="col-md-5">
     
                 <h2 class="card-title text-center">Login </h2>
-    
+    {% load crispy_forms_tags %}
                 <div style="align-items: center;">
                     
                     <form method="post" style="margin: 1%;" >
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {{ form | crispy }}
                         <button type="submit">Login</button>
                       </form>
     
