@@ -29,7 +29,10 @@ To get up and running, simply do the following:
     # Start the server
     $ python manage.py runserver
     
-    Open bowser at http://127.0.0.1:8000/
+    Open bowser at http://127.0.0.1:8000
+    Admin Login : http://127.0.0.1:8000/admin
+                username : admin 
+                password : admin
 
 
 **NOTE**: I highly recommend creating a [Virtual Environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/). Python Virtual Environments allow developers to work in isolated sandboxes and to create separation between python packages installed via [pip](https://pypi.python.org/pypi/pip).
